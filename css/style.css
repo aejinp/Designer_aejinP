@@ -1,0 +1,234 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    overflow-x: hidden;
+}
+
+
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Future_tree';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_04@1.0/Future_tree.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.bg_gray {
+    background-color: #f7f7f7;
+}
+
+.text_gray {
+    color: #1c1c1c;
+}
+
+.text_yellow {
+    color: #feb915;
+}
+
+.text_red {
+    color: #be4d25;
+}
+
+.text_blue {
+    color: #5282b3;
+}
+
+.border_text {
+    -webkit-text-stroke: 3px #5282b3;
+    color: white;
+}
+
+.text_border {
+    -webkit-text-stroke: 3px white;
+    color: #5282b3;
+}
+
+.title_style {
+    font-family: 'GmarketSansBold';
+}
+
+
+.eng_text {
+    font-family: 'Future_tree';
+}
+
+.sub_title {
+    font-family: 'GmarketSansMedium';
+}
+
+.half_highlight {
+    background: linear-gradient(to top, #d1e3f5, 40%, transparent 40%);
+}
+
+
+
+.text_style {
+    font-family: 'GmarketSansLight';
+}
+
+
+.inner {
+    z-index: 10;
+    position: relative;
+    margin: 0 auto !important;
+    padding: 0 15rem 0 15rem;
+}
+
+
+
+
+section {
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+
+#myDIV {
+    margin: auto;
+    color: white;
+    animation: mymove 4s infinite;
+}
+
+@keyframes mymove {
+    50% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/****** nav *******/
+nav {
+    width: 100%;
+}
+
+.nav_wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    transition: top .5s ease-out;
+    z-index: 99;
+}
+
+
+.btn {
+    padding: 10px 1%;
+    margin: 5px;
+    color: #fff;
+    text-decoration: none;
+    font-family: sans-serif;
+    transition: all 0.1s ease;
+}
+
+.btn:hover {
+    transition: all 0.1s ease;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+main p {
+    1.2em;
+}
+
+
+
+
+
+
+
+.mySlides {
+    display: none
+}
+
+img {
+    vertical-align: middle;
+  }
+
+
+
+
+
+.swiper-container {
+    width: 100%;
+    height: auto;
+
+}
+
+
+.swiper-slide img {
+    max-width: 100%;
+}
+
+
+
+
+.swiper-slide {
+    text-align: center;
+    display: flex;
+    /* 내용을 중앙정렬 하기위해 flex 사용 */
+    align-items: right;
+    /* 위아래 기준 중앙정렬 */
+    justify-content: center;
+    /* 좌우 기준 중앙정렬 */
+}
+
+
+
+
+.swiper-button-prev {
+    background-image: url(../img/arrow_prev.jpg) !important;
+    width: 44px !important;
+    background-size: 44px 44px !important;
+    border-radius: 5px;
+}
+
+.swiper-button-next {
+    background-image: url(../img/arrow_next.jpg) !important;
+    width: 44px !important;
+    background-size: 44px 44px !important;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+.modal{margin: 0 auto}
+.modal_b{max-width: 1000px!important;}
+
+.modal img{margin: 0 auto; width: 100%;}
+
+

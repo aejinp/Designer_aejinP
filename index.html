@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>AEJIN.P</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/6584921572.js" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="script.js"></script>
+
+    <!-------여러개 Swiper------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+
+    <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+    <link href=" https://unpkg.com/fullpage.js/dist/fullpage.min.css" rel="stylesheet">
+
+    <!-- Remember to include jQuery :) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+</head>
+
+<body>
+
+
+
+    <div id="fullpage">
+        <!-----------main---------------->
+        <section class="home hidden md:block title_style relative text-white section" style="width: 100vw;height: 100vh; background-color: #5282b3">
+            <div class="inner absolute">
+
+                <div class="text_style">
+                    <div style="border: 1px solid #fff; width: 200px"></div>
+                    <p class="py-1">2020-2021 Work_박애진</p>
+                    <div style="border: 1px solid #fff; width: 200px"></div>
+                </div>
+                <p style="font-size: 7rem;line-height: 1.1;" class="pt-8 title_style">I AM<br>
+                    <span class="text_border">CREATIVE</span><br>
+                    <a href="" class="typewrite" data-period="1000" data-type='["DESIGNER","PUBLISHER"]'></a><span class="wrap"></span>
+                </p>
+            </div>
+            <!-----------typewriter js---------------->
+            <script>
+                var TxtType = function(el, toRotate, period) {
+                    this.toRotate = toRotate;
+                    this.el = el;
+                    this.loopNum = 0;
+                    this.period = parseInt(period, 10) || 2000;
+                    this.txt = '';
+                    this.tick();
+                    this.isDeleting = false;
+                };
+
+                TxtType.prototype.tick = function() {
+                    var i = this.loopNum % this.toRotate.length;
+                    var fullTxt = this.toRotate[i];
+
+                    if (this.isDeleting) {
+                        this.txt = fullTxt.substring(0, this.txt.length - 1);
+                    } else {
+                        this.txt = fullTxt.substring(0, this.txt.length + 1);
+                    }
+
+                    this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+                    var that = this;
+                    var delta = 200 - Math.random() * 100;
+
+                    if (this.isDeleting) {
+                        delta /= 2;
+                    }
+
+                    if (!this.isDeleting && this.txt === fullTxt) {
+                        delta = this.period;
+                        this.isDeleting = true;
+                    } else if (this.isDeleting && this.txt === '') {
+                        this.isDeleting = false;
+                        this.loopNum++;
+                        delta = 500;
+                    }
+
+                    setTimeout(function() {
+                        that.tick();
+                    }, delta);
+                };
+
+                window.onload = function() {
+                    var elements = document.getElementsByClassName('typewrite');
+                    for (var i = 0; i < elements.length; i++) {
+                        var toRotate = elements[i].getAttribute('data-type');
+                        var period = elements[i].getAttribute('data-period');
+                        if (toRotate) {
+                            new TxtType(elements[i], JSON.parse(toRotate), period);
+                        }
+                    }
+                    // INJECT CSS
+                    var css = document.createElement("style");
+                    css.type = "text/css";
+                    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+                    document.body.appendChild(css);
+                };
+            </script>
+        </section>
+
+
+        <!-----------about---------------->
+        <section class="about hidden md:block relative bg-white section">
+            <img src="img/profile.png" class="absolute w-3/12" style="bottom: 0; right: 12%;">
+
+            <div class="inner grid grid-cols-3 gap-16 absolute">
+                <div>
+                    <div class="float-right">
+                        <div>
+                            <p class="text-7xl font-bold eng_text text_blue pt-12"><span class="half_highlight">"Just do it"</span></p>
+                            <ul class="col-span-2 pt-2">
+                                <li class="text-xl sub_title">
+                                    하는 디자이너 <span>박애진</span>입니다.
+                                </li>
+
+                                <li class="py-12 text-lg leading-8 text_style">
+                                    백번 생각하는 것 보다 한번 <span class="sub_title">행동하는 것</span>을 좋아합니다.<br>
+                                    가장 좋은 디자인은 누가봐도 멋진 디자인이라고 생각합니다.
+                                    앉아서 머리로만 디자인한다면 좋은 경과물이 나올 수 없다고 생각하고,
+                                    직접 목표에 부딪혀야 비로소 멋진 디자인이 탄생합니다.
+                                    현실에 안주하지않고 <span class="sub_title">결과에 만족하지않는 디자이너가 되고싶습니다.</span><br>
+                                    <span class="sub_title half_highlight">진짜 디자인을 할 수 있는 디자이너가 되고싶습니다.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+
+                    <div class="grid grid-cols-3 gap-16 pt-12">
+                        <p class="text-lg sub_title text_blue">Profile</p>
+                        <ul class="col-span-2">
+                            <li class="text_style text-lg leading-8">
+                                <p>
+                                    박애진</p>
+                                <p> Park Ae Jin</p>
+                                <p>1992.12.11
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid grid-cols-3 gap-16 pt-12">
+                        <p class="text-lg sub_title text_blue">Education</p>
+                        <ul class="col-span-2">
+                            <li class="text_style text-lg leading-8">
+                                <p>
+                                    부산 IT 교육 반응형 웹퍼블리싱<br>
+                                    <spn>2020.02 ~ 2020.08</spn>
+                                </p>
+                            </li>
+                            <li class="text_style text-lg leading-8">
+                                <p>
+                                    유한대학교 산업일본어과<br>
+                                    <spn>2012.03 ~ 2014.03</spn>
+                                </p>
+                            </li>
+                            <li class="text_style text-lg leading-8">
+                                <p>
+                                    영락고등학교 인문계열<br>
+                                    <spn>2009.03 ~ 2011.02</spn>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid grid-cols-3 gap-16 pt-12">
+                        <p class="text-lg sub_title text_blue">Contact</p>
+                        <ul class="col-span-2">
+                            <li class="text_style text-lg leading-8">
+                                <p>
+                                    010.4890.9747</p>
+                                <p>aejinp92@gmail.com</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="relative">
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-----  <!-----------Gallery---------------->
+
+        <section class="gallery hidden md:block title_style relative text-white section" style="width: 100vw;height: 100vh;">
+
+            <!-- Modal HTML embedded directly into document -->
+            <div id="ex1" class="modal">
+                <img src="img/gallery_1.jpg">
+            </div>
+            <div id="ex2" class="modal">
+                <img src="img/gallery_2.jpg">
+            </div>
+            <div id="ex3" class="modal">
+                <img src="img/gallery_3_full.jpg">
+
+            </div>
+            <div id="ex4" class="modal">
+                <img src="img/gallery_4.gif">
+            </div>
+            <div id="ex5" class="modal">
+                <img src="img/gallery_5_full.jpg">
+            </div>
+            <div id="ex6" class="modal">
+                <img src="img/gallery_6_full.jpg">
+            </div>
+            <div id="ex7" class="modal">
+                <img src="img/gallery_7.jpg">
+            </div>
+            <div id="ex8" class="modal">
+                <img src="img/gallery_8.jpg">
+            </div>
+            <div id="ex9" class="modal">
+                <img src="img/gallery_9.jpg">
+            </div>
+            <div id="ex10" class="modal">
+                <img src="img/gallery_10_full.jpg">
+            </div>
+            <div id="ex11" class="modal">
+                <img src="img/gallery_11_full.jpg">
+            </div>
+            <div id="ex12" class="modal">
+                <img src="img/gallery_12_full.jpg">
+            </div>
+            <div id="ex13" class="modal">
+                <img src="img/gallery_13_full.jpg">
+            </div>
+            <div id="ex14" class="modal">
+                <img src="img/gallery_14_full.jpg">
+            </div>
+            <div id="ex15" class="modal modal_b">
+                <img src="img/gallery_15_full.jpg">
+            </div>
+            <div id="ex16" class="modal modal_b">
+                <img src="img/gallery_16_full.jpg">
+            </div>
+            <div id="ex17" class="modal modal_b">
+                <img src="img/gallery_17_full.jpg">
+            </div>
+             <div id="ex18" class="modal modal_b">
+                <img src="img/gallery_18_full.jpg">
+            </div>
+             <div id="ex19" class="modal modal_b">
+                <img src="img/gallery_19_full.jpg">
+            </div>
+
+
+
+
+            <div class="inner absolute">
+                <div>
+                    <p class="text_blue text-5xl text-center">GALLERY</p>
+                    <p class="sub_title text-center pt-2 pb-12" style="color: #000">팝업,카드뉴스,인쇄물 등의 작업물입니다.</p>
+                </div>
+                <!-- 구분용 swiper1 추가 -->
+                <div class="swiper-container swiper1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="#ex1" rel="modal:open">
+                                <img src="img/gallery_1.jpg">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#ex8" rel="modal:open">
+                                <img src="img/gallery_8.jpg">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#ex3" rel="modal:open">
+                                <img src="img/gallery_3.jpg">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#ex10" rel="modal:open">
+                                <img src="img/gallery_10.jpg">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#ex9" rel="modal:open">
+                                <img src="img/gallery_9.jpg">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#ex4" rel="modal:open">
+                                <img src="img/gallery_4.gif">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#ex5" rel="modal:open">
+                                <img src="img/gallery_5.jpg">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#ex11" rel="modal:open">
+                                <img src="img/gallery_11.jpg">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#ex6" rel="modal:open">
+                                <img src="img/gallery_6.jpg">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#ex7" rel="modal:open">
+                                <img src="img/gallery_7.jpg">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#ex10" rel="modal:open">
+                                <img src="img/gallery_10.jpg">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#ex12" rel="modal:open">
+                                <img src="img/gallery_12.jpg">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#ex13" rel="modal:open">
+                                <img src="img/gallery_13.jpg">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#ex14" rel="modal:open">
+                                <img src="img/gallery_14.jpg">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#ex15" rel="modal:open">
+                                <img src="img/gallery_15.jpg">
+                            </a>
+                        </div>
+                         <div class="swiper-slide">
+                            <a href="#ex16" rel="modal:open">
+                                <img src="img/gallery_16.jpg">
+                            </a>
+                        </div>
+                         <div class="swiper-slide">
+                            <a href="#ex17" rel="modal:open">
+                                <img src="img/gallery_17.jpg">
+                            </a>
+                        </div>
+                         <div class="swiper-slide">
+                            <a href="#ex18" rel="modal:open">
+                                <img src="img/gallery_18.jpg">
+                            </a>
+                        </div>
+                         <div class="swiper-slide">
+                            <a href="#ex19" rel="modal:open">
+                                <img src="img/gallery_19.jpg">
+                            </a>
+                        </div>
+
+
+                    </div>
+
+                    <!-- 네비게이션 버튼 -->
+                    <div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+                    <div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+
+                    <!-- 페이징 -->
+                    <div class="swiper-pagination" style="display: none"></div>
+
+                </div>
+
+
+
+
+
+            </div>
+        </section>
+
+
+        <!-----web detail---------------->
+
+        <section class="web_detail hidden md:block title_style relative text-white section" style="width: 100vw;height: 100vh;">
+            <img src="img/title_line_blue.png" class="absolute fadeinleft" style="top: 35%; left: -9%">
+            <div class="w-full grid grid-cols-3 gap-16">
+                <div class="pl-40 pt-80 fadeinleft">
+
+                    <p class="text_blue text-4xl"><span class="text_style">WEB</span> DETAIL</p>
+                    <p class="text_style pt-6 pb-32" style="color: #000">자체제작 <span class="sub_title half_highlight ">상세페이지</span>입니다.<br>각 상품과 같은패턴을 포인트디자인으로 사용해서 통일감을 주고
+                        목업을 이용한 모델컷으로 <span class="sub_title">간접시연을 경험</span>토록하였습니다.
+                        또한,사용자의 이해를 돕기위하여 제품사용법을 시각화하여
+                        각 단계별 이미지를 편집하였습니다.
+
+                    </p>
+
+                    <!-- 네비게이션 버튼 -->
+                    <div class="w-2/5 relative" style="float: right">
+                        <div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+                        <div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+                    </div>
+                </div>
+                <!-- 구분용 swiper2 추가 -->
+                <div class="swiper-container swiper2 col-span-2" style="background-color: #5282b3">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="img/detail1.png"></div>
+                        <div class="swiper-slide"><img src="img/detail2.png"></div>
+                        <div class="swiper-slide"><img src="img/detail3.png">
+                        </div>
+                        <div class="swiper-slide"><img src="img/detail4.png">
+                        </div>
+                    </div>
+
+
+                    <!-- 페이징 -->
+                    <div class="swiper-pagination" style="display: none"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!----- branding---------------->
+
+        <section class="branding hidden md:block title_style relative text-white section" style="width: 100vw;height: 100vh;">
+            <div class="inner absolute">
+                <div class="fadeinleft">
+                    <p class="text_blue text-5xl text-center"><span class="text_style">NEW</span> BRANDING</p>
+                    <p class="sub_title text-center pt-2 pb-16" style="color: #000">열정을 한상자에 담아 브랜딩하였습니다</p>
+                </div>
+                <!-- 구분용 swiper3 추가 -->
+                <div class="swiper-container swiper3">
+                    <div class="swiper-wrapper fadeinleft">
+                        <div class="swiper-slide">
+                            <a href="https://aejinp.github.io/Dokkaebeemarket/" target="_blank">
+                                <img src="img/branding_1.png">
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="https://aejinp.github.io/dreamwings/" target="_blank">
+                                <img src="img/branding_2.png">
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="https://fldi.kr/intro" target="_blank">
+                                <img src="img/branding_3.png">
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="http://jjolgit.cafe24.com/" target="_blank">
+                                <img src="img/cafe24.png">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 네비게이션 버튼 -->
+                    <div class="swiper-button-next fadeinleft"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+                    <div class="swiper-button-prev fadeinleft"></div><!-- 이전 버튼 -->
+
+                    <!-- 페이징 -->
+                    <div class="swiper-pagination" style="display: none"></div>
+                </div>
+                <!--            <div style="text-align:center; color: black" class="sub_title pt-6">랜덤사진 갤러리1 (swiper1)</div>-->
+
+                <br>
+
+
+            </div>
+        </section>
+        <!-------contact---------------->
+
+        <section class="contact hidden md:block title_style relative text-white section" style="width: 100vw;height: 100vh; background-color: #5282b3">
+            <div class="inner absolute">
+
+                <!--             <p class="text-center"><a href="" class="typewrite mx-auto text-center" data-period="1000" data-type='["THANK YOU <br> FOR WATCHING"]'></a><span class="wrap"></span></p>-->
+
+                <div style="font-size: 3rem: 1.1; text-align: center; width:300px; height: 300px;border-radius: 50%;" class="pt-8 sub_title bg-white text_blue mx-auto">
+                    <p style="padding-top: 75px">박애진<br>
+                        010.4890.9747<br>
+                        <span class="pb-4">aejinp92@gmail.com</span><br>
+                    </p>
+                </div>
+
+                <p class="text-center pt-8"><a href="" class="typewrite mx-auto title_style text-xl text-white" data-period="1000" data-type='["THANK YOU FOR WATCHING!"]'></a><span class="wrap"></span></p>
+            </div>
+            <!-----------typewriter js---------------->
+            <script>
+                var TxtType = function(el, toRotate, period) {
+                    this.toRotate = toRotate;
+                    this.el = el;
+                    this.loopNum = 0;
+                    this.period = parseInt(period, 10) || 2000;
+                    this.txt = '';
+                    this.tick();
+                    this.isDeleting = false;
+                };
+
+                TxtType.prototype.tick = function() {
+                    var i = this.loopNum % this.toRotate.length;
+                    var fullTxt = this.toRotate[i];
+
+                    if (this.isDeleting) {
+                        this.txt = fullTxt.substring(0, this.txt.length - 1);
+                    } else {
+                        this.txt = fullTxt.substring(0, this.txt.length + 1);
+                    }
+
+                    this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+                    var that = this;
+                    var delta = 200 - Math.random() * 100;
+
+                    if (this.isDeleting) {
+                        delta /= 2;
+                    }
+
+                    if (!this.isDeleting && this.txt === fullTxt) {
+                        delta = this.period;
+                        this.isDeleting = true;
+                    } else if (this.isDeleting && this.txt === '') {
+                        this.isDeleting = false;
+                        this.loopNum++;
+                        delta = 500;
+                    }
+
+                    setTimeout(function() {
+                        that.tick();
+                    }, delta);
+                };
+
+                window.onload = function() {
+                    var elements = document.getElementsByClassName('typewrite');
+                    for (var i = 0; i < elements.length; i++) {
+                        var toRotate = elements[i].getAttribute('data-type');
+                        var period = elements[i].getAttribute('data-period');
+                        if (toRotate) {
+                            new TxtType(elements[i], JSON.parse(toRotate), period);
+                        }
+                    }
+                    // INJECT CSS
+                    var css = document.createElement("style");
+                    css.type = "text/css";
+                    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+                    document.body.appendChild(css);
+                };
+            </script>
+        </section>
+
+    </div>
+
+
+    <!--------------------------------------------------------mobile_ sectione------------------------------------------------------>
+
+
+
+    <!-----------main_mobile---------------->
+    <section class="home_mobile md:hidden lg:hidden xl:hidden 2xl:hidden pb-10">
+        <img src="img/home_main_mobile.jpg">
+    </section>
+
+
+    <!-----------about_mobile---------------->
+    <section class="about bg_beige pt-16 w-full md:hidden lg:hidden xl:hidden 2xl:hidden" style="height: 50rem">
+        <div class="pt-16 h-72 w-full md:hidden lg:hidden xl:hidden 2xl:hidden" style="position: relative">
+            <div>
+                <p class="title_style text-center pt-48 text-2xl text_red fadeinleft">디자인,일상이 되다</p>
+                <p class="sub_title_style text-center pt-4 text-4xl text_red fadeinleft">
+                    My life begins<br>with design</p>
+                <p class="text-center pt-4 text-sm text_red font-semibold fadeinleft">
+                    가장 트렌디한 디자이너,박애진입니다.<br>
+                    사람은 위기를 극복하는 시점마다 성장하듯이,<br>다양하게 경험을 통해 상상을 그대로 구현해 내는 <br>디자이너로 성장하겠습니다. </p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-----------Gallery_mobile---------------->
+    <section class="Garelly bg_beige mt-16 w-full md:hidden lg:hidden xl:hidden 2xl:hidden" style="height: 60rem">
+        <div class="pt-16 h-72 w-full md:hidden lg:hidden xl:hidden 2xl:hidden" style="position: relative">
+            <div>
+                <p class="title_style text-center pt-40 text-4xl text_red leading-snug fadeinleft">
+                    다채로운<br>디자인 갤러리
+                </p>
+
+                <p class="text-center pt-3 text-sm text_red font-semibold fadeinleft">
+                    다양한 디자인 실습과 실무경험을 바탕으로 만든 디자인 포트폴리오 갤러리 입니다. 사진을 클릭하여, 넘겨보세요</p>
+            </div>
+        </div>
+
+    </section>
+    <!-----------Branding_mobile---------------->
+    <section class="Garelly bg_beige pt-16 w-full md:hidden lg:hidden xl:hidden 2xl:hidden" style="height: 60rem">
+        <div class="pt-16 h-72 w-full md:hidden lg:hidden xl:hidden 2xl:hidden" style="position: relative">
+            <div>
+                <p class="sub_title_style text-center pt-40 text-4xl text_red leading-snug fadeinleft">
+                    New Branding
+                </p>
+
+                <p class="text-center pt-2 text-sm text_red font-semibold fadeinleft">
+                    열정을 한상자에 담아 브랜딩하였습니다 </p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-----------스크롤 fade in------------------>
+    <script>
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                $('.fadeinleft').each(function(i) {
+
+                    var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+                    var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+                    if (bottom_of_window > bottom_of_element) {
+                        $(this).animate({
+                            'opacity': '1',
+                            'margin-left': '0px'
+                        }, 800);
+                    }
+
+                });
+            });
+        });
+
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                $('.countArea').each(function(i) {
+
+                    var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+                    var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+
+                    //<!-----------스크롤 숫자 카운팅------------------>
+                    $({
+                        value: 0
+                    }).animate({
+                        value: 90
+                    }, {
+                        duration: 2000,
+                        step: function() {
+                            $(".countArea").text(Math.floor(this.value));
+                        },
+                        complete: function() {
+                            $(".countArea").text(Math.floor(this.value));
+                        }
+                    });
+                    $({
+                        value: 0
+                    }).animate({
+                        value: 95
+                    }, {
+                        duration: 2000,
+                        step: function() {
+                            $(".countArea2").text(Math.floor(this.value));
+                        },
+                        complete: function() {
+                            $(".countArea2").text(Math.floor(this.value));
+                        }
+                    });
+                    $({
+                        value: 0
+                    }).animate({
+                        value: 85
+                    }, {
+                        duration: 2000,
+                        step: function() {
+                            $(".countArea3").text(Math.floor(this.value));
+                        },
+                        complete: function() {
+                            $(".countArea3").text(Math.floor(this.value));
+                        }
+                    });
+                    $({
+                        value: 0
+                    }).animate({
+                        value: 70
+                    }, {
+                        duration: 2000,
+                        step: function() {
+                            $(".countArea4").text(Math.floor(this.value));
+                        },
+                        complete: function() {
+                            $(".countArea4").text(Math.floor(this.value));
+                        }
+                    });
+
+                });
+            });
+
+
+
+
+            // swiper1
+            new Swiper('.swiper1', {
+                pagination: { // 페이징 설정
+                    el: '.swiper-pagination',
+                    clickable: true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
+                },
+                slidesPerView: 3, // 동시에 보여줄 슬라이드 갯수
+                spaceBetween: 30, // 슬라이드간 간격
+                slidesPerGroup: 1, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
+
+                // 그룹수가 맞지 않을 경우 빈칸으로 메우기
+                // 3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듬
+                loopFillGroupWithBlank: true,
+                loop: true, // 무한 루프 슬라이드, 반복이 되며 슬라이드가 끝이 없다.
+                navigation: { // 네비게이션 설정
+                    nextEl: '.swiper-button-next', // 다음 버튼 클래스명
+                    prevEl: '.swiper-button-prev', // 이번 버튼 클래스명
+                },
+            });
+
+            // swiper2
+            new Swiper('.swiper2', {
+                slidesPerView: 1, // 동시에 보여줄 슬라이드 갯수
+                spaceBetween: 0, // 슬라이드간 간격
+                slidesPerGroup: 1, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
+
+                loop: true, // 무한 루프 슬라이드, 반복이 되며 슬라이드가 끝이 없다.
+                navigation: { // 네비게이션 설정
+                    nextEl: '.swiper-button-next', // 다음 버튼 클래스명
+                    prevEl: '.swiper-button-prev', // 이번 버튼 클래스명
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+            });
+            // swiper3
+            new Swiper('.swiper3', {
+                slidesPerView: 1, // 동시에 보여줄 슬라이드 갯수
+                spaceBetween: 30, // 슬라이드간 간격
+                slidesPerGroup: 1, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
+
+                // 그룹수가 맞지 않을 경우 빈칸으로 메우기
+                // 3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듬
+                loopFillGroupWithBlank: true,
+                loop: true, // 무한 루프 슬라이드, 반복이 되며 슬라이드가 끝이 없다.
+                navigation: { // 네비게이션 설정
+                    nextEl: '.swiper-button-next', // 다음 버튼 클래스명
+                    prevEl: '.swiper-button-prev', // 이번 버튼 클래스명
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+            });
+            new fullpage('#fullpage', {});
+
+        });
+    </script>
+
+
+
+
+
+</body>
+
+</html>
